@@ -1,0 +1,26 @@
+<h1>Point of Sale Database</h1>
+
+<form action="/products" method="post">
+
+  <label for="name">Add a product name:</label>
+  <input id="name" name="name" type="text">
+
+  <label for="price">Price:</label>
+  <input id="price" name="price" type="text">
+
+  <button class='button' type='submit'>Add Product</button>
+</form>
+
+<br />
+<br />
+
+<p>Current Products</p>
+<% if @products.any?() %>
+  <ul>
+    <% @products.each() do |product| %>
+    <li><a href="/products/<%= product.id() %>"><%= product.name() %></a>, $<%= product.price() %></li>
+    <% end %>
+  </ul>
+<% else %>
+    <p>No products have been added! :(</p>
+<% end %>
