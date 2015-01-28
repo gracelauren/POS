@@ -4,4 +4,6 @@ class Product < ActiveRecord::Base
   scope(:bought, -> do
     where({:bought => true})
   end)
+  validates(:name, :presence => true)
+  validates(:price, :presence => true)
 end
