@@ -12,7 +12,7 @@ get("/") do
 end
 
 post("/products") do
-  name = params.fetch("name").split.map(&:capitalize).join('')
+  name = params.fetch("name")
   price = params.fetch("price").to_i()
   @product = Product.new({:name => name, :price => price})
   @product.save()
@@ -29,10 +29,10 @@ get("/products/:id") do
 end
 
 patch("/products/:id") do
-  name = params.fetch("name").split.map(&:capitalize).join('')
+  name = params.fetch("name")
   price = params.fetch("price")
   @product = Product.find(params.fetch("id").to_i())
-  if params.fetch("name").split.map(&:capitalize).join('') != ""
+  if params.fetch("name") != ""
     @product.update({:name => name})
   end
   if params.fetch("price") != ""
@@ -56,7 +56,7 @@ end
 
 post("/purchases") do
   product_ids = params.fetch("product_ids")
-  @purchase = Purchase.create({:product_ids => product_ids}) # .update
+  @purchase = Purchase.create({:product_ids => product_ids})
   @products = Product.all()
   url = "/receipt/" + @purchase.id().to_s()
   redirect(url)
