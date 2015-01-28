@@ -14,8 +14,13 @@ end
 post("/products") do
   name = params.fetch("name").split.map(&:capitalize).join('')
   price = params.fetch("price").to_i()
-  @product = Product.create({:name => name, :price => price})
-  redirect("/")
+  @product = Product.new({:name => name, :price => price})
+  @product.save()
+  if @product.save()
+    redirect("/")
+  else
+    erb(:errors)
+  end
 end
 
 get("/products/:id") do

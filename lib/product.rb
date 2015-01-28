@@ -5,5 +5,4 @@ class Product < ActiveRecord::Base
     where({:bought => true})
   end)
   validates(:name, :presence => true)
-  validates(:price, :presence => true)
 end
