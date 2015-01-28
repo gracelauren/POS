@@ -1,6 +1,14 @@
-<form action="/cashier" method="post">
-  <label for="product_id">Select what the customer is buying.</label>
-  <select id="product_id" name="product_id" type="text">
-    <% @products.each() do |product|
+<h3>Select what the customer is buying.</h3>
+<% if @products.any? %>
+<form action="/purchases" method="post">
+  <% @products.each() do |product| %>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" name="product_ids[]" value="<%=product.id() %>"> <%=product.name() %> $<%=product.price() %>
+    </label>
+  </div>
+  <% end %>
 
-<input type="checkbox" >
+    <button type="submit">Add Products</button>
+</form>
+<% end %>

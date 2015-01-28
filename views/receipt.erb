@@ -1,0 +1,16 @@
+
+<h2> RECEIPT</h2>
+<p>
+  <% if @purchase_products.any? %>
+  <ul>
+    <% @purchase_products.each() do |product| %>
+    <li><%= product.name() %>, $<%= product.price() %></li>
+    <% end %>
+  </ul>
+
+  Your total is: $<%= @purchase.total() %>
+  <% end %>
+  <br />
+  <br />
+  Thank you for shopping with us!
+</p>

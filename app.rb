@@ -3,6 +3,7 @@ require("sinatra/reloader")
 require("sinatra/activerecord")
 also_reload("/lib/**/*.rb")
 require("./lib/product")
+require("./lib/purchase")
 require("pg")
 
 get("/") do
@@ -42,15 +43,22 @@ delete("/products/:id") do
   erb(:index)
 end
 
+get("/purchases") do
 
-get("/cashier") do
   @products = Product.all()
-  erb(:index)
+  erb(:purchases)
 end
 
-post("/cashier") do
-  name = params.fetch("name").split.map(&:capitalize).join('')
-  price = params.fetch("price").to_i()
-  @product = Product.create({:name => name, :price => price})
-  redirect("/")
+post("/purchases") do
+  product_ids = params.fetch("product_ids")
+  @purchase = Purchase.create({:product_ids => product_ids}) # .update
+  @products = Product.all()
+  url = "/receipt/" + @purchase.id().to_s()
+  redirect(url)
+end
+
+get("/receipt/:id") do
+  @purchase = Purchase.find(params.fetch("id").to_i())
+  @purchase_products = @purchase.products()
+  erb(:receipt)
 end
