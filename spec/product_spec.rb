@@ -6,6 +6,11 @@ describe(Product) do
     expect(product.save()).to(eq(false))
   end
 
+  it("converts the name to first uppercase and rest lowercase") do
+    product = Product.create({:name => "milk", :price => ""})
+    expect(product.name()).to(eq("Milk"))
+  end
+
   describe(".bought") do
     it("returns all the bought products") do
       not_bought_product = Product.create({:name => "milk", :price => 2, :bought => false})
