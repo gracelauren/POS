@@ -1,6 +1,8 @@
 require('spec_helper')
 
 describe(Purchase) do
+  it { should have_and_belong_to_many(:products) }
+
   describe("#total") do
     it("total all the products in the purchase") do
       product1 = Product.create({:name => "milk", :price => 2})
@@ -9,15 +11,6 @@ describe(Purchase) do
       expect(purchase.total()).to(eq(5))
     end
   end
-
-  describe("#products") do
-      it("gives all the products in the purchase") do
-        product1 = Product.create({:name => "milk", :price => 2})
-        product2 = Product.create({:name => "cookies", :price => 3})
-        purchase = Purchase.create({:product_ids => [product1.id, product2.id]})
-        expect(purchase.products()).to(eq([product1, product2]))
-      end
-    end
 
     describe(".between") do
       it("tells you if the purchase was in the timeframe") do

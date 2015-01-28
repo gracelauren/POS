@@ -8,7 +8,7 @@ class Purchase < ActiveRecord::Base
 
 
   define_method(:total) do
-    
+
     self.products().sum(:price)
 
   end
