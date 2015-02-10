@@ -3,7 +3,7 @@ Point of Sale
 
 by Grace Mekarski and Jackie Fletcher
 
-Point of Sale is a website that uses a database and Sinatra to allow a company to add add products to their inventory, and create a reciept and total for each customer. 
+Point of Sale is a website that uses a database and Sinatra to allow a company to add add products to their inventory, and create a reciept and total for each customer.
 
 Installation
 ------------
@@ -54,4 +54,4 @@ In your web browser, go to http://localhost:4567
 License
 -------
 
-GNU GPL v2. Copyright 2015 Grace Mekarski and Jackie Fletcher
+GNU GPL v2. Copyright 2015 Grace Mekarski and Jackie Fletcher 
