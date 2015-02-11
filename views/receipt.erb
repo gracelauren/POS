@@ -1,16 +1,111 @@
 
-<h2> RECEIPT</h2>
-<p>
-  <% if @purchase_products.any? %>
-  <ul>
-    <% @purchase_products.each() do |product| %>
-    <li><%= product.name() %>, $<%= product.price() %></li>
-    <% end %>
-  </ul>
 
-  Your total is: $<%= @purchase.total() %>
-  <% end %>
-  <br />
-  <br />
-  Thank you for shopping with us!
-</p>
+<div id="DIV_52">
+  <div id="DIV_53">
+    <div id="DIV_54">
+      <div id="DIV_1">
+        <div id="DIV_2">
+          <div id="DIV_3">
+            <div id="DIV_4">
+              <div id="DIV_5">
+                <div id="DIV_6">
+                  CUSTOMER RECEIPT
+                </div>
+                <div id="DIV_7">
+                </div>
+                <div id="DIV_8">
+                </div>
+              </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div id="DIV_9">
+              <% if @purchase_products.any? %>
+              <table id="TABLE_10">
+                <tbody id="TBODY_11">
+                  <% @purchase_products.each() do |product| %>
+                  <tr id="TR_12">
+                    <th id="TH_13">
+                      <%= product.name() %>
+
+                  </th>
+                    <td id="TD_14">
+                    </td>
+                    <td id="TD_15">
+                      US$<%= product.price() %>
+                    </td>
+                  </tr>
+                  <% end %>
+                  <tr id="TR_16">
+                    <td colspan="3" id="TD_17">
+                      <ul id="UL_18">
+                        <li id="LI_19">
+                          From September 29, 2014 to October 29, 2014
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+                <tfoot id="TFOOT_28">
+                  <tr id="TR_29">
+                    <th id="TH_30">
+                      Total purchases
+                    </th>
+                    <td id="TD_31">
+                    </td>
+                    <td id="TD_32">
+                      US$<%= @purchase.total() %>
+                    </td>
+                  </tr>
+                  <tr id="TR_33">
+                    <th id="TH_34">
+                      Discounts/Credits
+                    </th>
+                    <td id="TD_35">
+                    </td>
+                    <td id="TD_36">
+                      (US$0.00)
+                    </td>
+                  </tr>
+                  <tr id="TR_37">
+                    <th id="TH_38">
+                      VAT (0.00%)
+                    </th>
+                    <td id="TD_39">
+                    </td>
+                    <td id="TD_40">
+                      US$0.00
+                    </td>
+                  </tr>
+                  <tr id="TR_41">
+                    <th id="TH_42">
+                      Tax (0.00%)
+                    </th>
+                    <td id="TD_43">
+                    </td>
+                    <td id="TD_44">
+                      US$0.00
+                    </td>
+                  </tr>
+                  <tr id="TR_45">
+                    <th id="TH_46">
+                      <span id="SPAN_47">Total</span>
+                    </th>
+                    <td id="TD_48">
+                      <span id="SPAN_49"></span>
+                    </td>
+                    <td id="TD_50">
+                      <span id="SPAN_51">US$<%= @purchase.total() %></span>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
